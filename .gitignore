@@ -1,0 +1,9 @@
+node_modules/
+lib/
+lib-commonjs/
+temp/
+dist/
+release/
+.test-build/
+test-results/
+sharepoint/solution/debug/
