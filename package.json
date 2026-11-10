@@ -1,0 +1,52 @@
+{
+  "name": "imberon-tile-studio",
+  "version": "1.4.5",
+  "private": true,
+  "description": "Enterprise SharePoint tile designer with modular native property-pane editing, safe links and configurable data sources.",
+  "engines": {
+    "node": ">=22.14.0 <23.0.0"
+  },
+  "scripts": {
+    "build": "heft build --clean --production",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --max-warnings 0",
+    "package": "node scripts/prepare-package.mjs && npm run test && npm run lint && npm run build && heft package-solution --production && node scripts/assert-package.mjs",
+    "release:verify": "npm run package",
+    "clean": "heft clean",
+    "start": "heft start --clean",
+    "test": "node scripts/test.mjs",
+    "validate": "npm run test && npm run lint && npm run build",
+    "preview:build": "node scripts/build-preview.mjs",
+    "preview": "node scripts/serve-preview.mjs",
+    "test:browser": "npm test && npm run preview:build && node tests/browser.cjs",
+    "test:offline": "node scripts/test-offline.mjs"
+  },
+  "dependencies": {
+    "@microsoft/sp-component-base": "1.23.2",
+    "@microsoft/sp-core-library": "1.23.2",
+    "@microsoft/sp-http": "1.23.2",
+    "@microsoft/sp-property-pane": "1.23.2",
+    "@microsoft/sp-webpart-base": "1.23.2",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "tslib": "2.3.1"
+  },
+  "devDependencies": {
+    "@microsoft/eslint-plugin-spfx": "1.23.2",
+    "@microsoft/eslint-config-spfx": "1.23.2",
+    "@microsoft/sp-module-interfaces": "1.23.2",
+    "@microsoft/spfx-web-build-rig": "1.23.2",
+    "@microsoft/spfx-heft-plugins": "1.23.2",
+    "@rushstack/heft": "1.2.17",
+    "@types/react": "17.0.45",
+    "@types/react-dom": "17.0.17",
+    "@types/webpack-env": "1.15.3",
+    "axe-core": "4.10.3",
+    "css-loader": "7.1.2",
+    "esbuild": "0.25.11",
+    "eslint": "9.37.0",
+    "eslint-plugin-react-hooks": "5.2.0",
+    "playwright": "1.56.1",
+    "sass": "1.89.2",
+    "typescript": "5.8.3"
+  }
+}

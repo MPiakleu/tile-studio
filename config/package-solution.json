@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "imberon-tile-studio-client-side-solution",
+    "id": "1f35b7a9-e87c-40f1-a0ab-cdb9ce5d3ac9",
+    "version": "1.4.5.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "Imberon",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.23.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Configurable tiles, cards, banners, and resource lists."
+      },
+      "longDescription": {
+        "default": "Tile Studio v1.4.5: reusable enterprise cards, tiles, navigation, responsive layouts and read-only SharePoint list content. Native SharePoint property-pane editor, individually configured links, privacy-aware image host controls, design presets and configurable accessibility options. Modular editor architecture with separated content, layout, style, responsive and preset sections."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": [
+        "Site Design",
+        "Productivity"
+      ]
+    },
+    "features": [
+      {
+        "title": "Tile Studio",
+        "description": "Reusable Tile Studio web part",
+        "id": "21783d20-3e8b-490c-95c4-fae3db98d1d6",
+        "version": "1.4.5.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/imberon-tile-studio.sppkg"
+  }
+}

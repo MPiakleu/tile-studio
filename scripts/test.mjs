@@ -1,0 +1,10 @@
+import { build } from 'esbuild';
+import { spawnSync } from 'node:child_process';
+import { mkdirSync, readdirSync, writeFileSync } from 'node:fs';
+mkdirSync('.test-build', { recursive: true });
+await build({ entryPoints: ['tests/core.entry.ts'], bundle: true, platform: 'node', format: 'cjs', outfile: '.test-build/core.cjs', logLevel: 'warning' });
+const files = readdirSync('tests').filter(name => name.endsWith('.test.cjs')).sort();
+if (!files.length) throw new Error('No test suites were found.');
+writeFileSync('.test-build/run-tests.cjs', files.map(name => `require(${JSON.stringify(`../tests/${name}`)});`).join('\n'));
+const result = spawnSync(process.execPath, ['.test-build/run-tests.cjs'], { stdio: 'inherit' });
+process.exit(result.status ?? 1);

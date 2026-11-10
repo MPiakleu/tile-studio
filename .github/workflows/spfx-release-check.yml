@@ -1,0 +1,35 @@
+name: SPFx production package
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  spfx-production-package:
+    name: SPFx production package
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up supported Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+          cache: npm
+      - name: Install exact locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Unit tests, zero-warning lint, production build and package
+        run: npm run package
+      - name: Validate SPPKG manifest, relationships, assets and permissions
+        run: python3 tests/verify-package.py
+      - name: Archive validated SharePoint package
+        uses: actions/upload-artifact@v4
+        with:
+          name: imberon-tile-studio-sppkg
+          path: sharepoint/solution/imberon-tile-studio.sppkg
+          if-no-files-found: error
+          retention-days: 7

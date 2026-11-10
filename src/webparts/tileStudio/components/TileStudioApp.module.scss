@@ -1,0 +1,26 @@
+.app { width: 100%; min-width: 0; color: var(--ts-app-text); font-family: 'Segoe UI', system-ui, sans-serif; box-sizing: border-box; }
+.app *, .app *::before, .app *::after { box-sizing: border-box; }
+.toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; align-items: center; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--ts-app-border); }
+.brand { display: flex; gap: 9px; align-items: center; font-size: 16px; }
+.brandMark { display: grid; place-items: center; color: var(--ts-app-surface); background: var(--ts-app-accent); border-radius: 8px; width: 32px; height: 32px; }
+.version { color: var(--ts-app-muted); font-size: 9px; letter-spacing: .12em; padding-left: 10px; border-left: 1px solid var(--ts-app-border); }
+.designButton { display: inline-flex; gap: 8px; align-items: center; cursor: pointer; padding: 10px 14px; border: 1px solid var(--ts-app-border); border-radius: 8px; color: var(--ts-app-text); background: var(--ts-app-surface); font: 600 13px 'Segoe UI', sans-serif; min-height: 42px; }
+.designButton:hover { border-color: var(--ts-app-accent); }
+.app button:focus-visible { outline: 3px solid var(--ts-app-accent); outline-offset: 3px; }
+.previewToolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; padding: 18px 0; font-size: 12px; color: var(--ts-app-muted); }
+.previewToolbar > span { display: inline-flex; align-items: center; gap: 7px; }
+.previewToolbar > div { display: flex; gap: 4px; padding: 3px; border-radius: 8px; background: var(--ts-app-subtle); }
+.previewToolbar button { font: inherit; cursor: pointer; border: 0; padding: 9px 12px; border-radius: 6px; color: var(--ts-app-muted); background: transparent; min-height: 36px; }
+.previewToolbar button[aria-pressed=true] { background: var(--ts-app-surface); color: var(--ts-app-text); box-shadow: 0 1px 4px #102c3512; }
+.liveDot { height: 6px; width: 6px; border-radius: 50%; background: var(--ts-app-accent); }
+.previewFrame { min-width: 0; width: 100%; }
+.message, .error { display: flex; align-items: flex-start; gap: 12px; border: 1px solid var(--ts-app-border); border-radius: 12px; padding: 24px; background: var(--ts-app-surface); font-size: 14px; }
+.message { align-items: center; color: var(--ts-app-muted); }
+.error p { line-height: 1.6; margin: 8px 0 16px; }
+.error button { font: inherit; padding: 9px 15px; border: 1px solid var(--ts-app-border); border-radius: 7px; background: var(--ts-app-subtle); color: var(--ts-app-text); cursor: pointer; }
+.loadingDot { width: 12px; height: 12px; border: 2px solid var(--ts-app-border); border-top-color: var(--ts-app-accent); border-radius: 50%; animation: rotate 800ms linear infinite; }
+.limitNotice { color: var(--ts-app-muted); font-size: 12px; line-height: 1.5; margin: 14px 0 0; }
+@keyframes rotate { to { transform: rotate(360deg); } }
+@media (max-width: 540px) { .version { display: none; } .toolbar { gap: 10px; } }
+@media (prefers-reduced-motion: reduce) { .loadingDot { animation: none; } }
+@media (forced-colors: active) { .brandMark { border: 1px solid ButtonText; } }
